@@ -5,6 +5,10 @@ const userSchema = mongoose.Schema({
         type : String,
         maxLength : 50
     },
+    password:{
+        type : String,
+        minLength : 5
+    },
     email:{
         type : String,
         trim : true, //tony lee@naver.com << 공백이 존재. 공백을 제거해주는걸 trim이 해주는 역할
@@ -28,9 +32,9 @@ const userSchema = mongoose.Schema({
         type : Number
     }
 
-})
+});
 
 const User = mongoose.model('User',userSchema)
 
 //다른 곳에서도 사용할수 있도록
-module.express = { User }
+module.exports = { User }
